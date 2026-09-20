@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lichtblick Fotografie · Atelier Visionnaire</title>
+  <meta name="description" content="Künstlerische, feinfühlige Hundefotografie im Raum Freiburg & Lörrach. Ein interaktives Erlebnis für Seelenhunde.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Birthstone+Bounce:wght@400;500&family=Ephesis&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="mode-golden font-alex">
+
+  <!-- NAVIGATION -->
+  <header class="nat-header">
+    <div class="container nat-header-inner">
+      <a href="index.html" class="nat-brand">Lichtblick <em>Fotografie</em></a>
+      <button class="nat-toggle" aria-label="Menü öffnen">☰</button>
+      <nav class="nat-nav-links">
+        <a href="#matcher">Wesen-Matcher</a>
+        <a href="#special">Herbst-Special</a>
+        <a href="#galerien">Galerien</a>
+        <a href="#stimmen">Erfahrungen</a>
+        <a href="#preise">Pakete</a>
+        <a href="about.html">Über mich</a>
+        <a href="#kontakt" class="pill-btn" style="padding: 10px 24px; font-size: 14px;">Termin anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO MIT SANFTER FOTO-DIASHOW -->
+    <section class="hero-vision">
+      <div class="container">
+        <div class="hero-stage">
+          <div class="hero-stage-copy">
+            <h1>Für die Wesen, die unser Herz auf <em>vier Pfoten</em> tragen.</h1>
+            <p class="hero-stage-p">
+              Hundefotografie voller Ruhe, Wärme und echter Nähe. Im Raum Freiburg und Lörrach fangen wir den unbändigen Zauber und die leisen Blicke deines Hundes ein – ganz ohne Dressur, mit unendlich viel Geduld und Liebe.
+            </p>
+            <div class="hero-stage-ctas">
+              <a href="#kontakt" class="pill-btn">Herzensmoment anfragen</a>
+              <a href="#matcher" class="pill-outline">Wesen-Finder starten</a>
+            </div>
+            <div class="hero-handnote">
+              „Das schönste Licht ist das, in dem er sich wohlfühlt.“
+            </div>
+          </div>
+
+          <div class="hero-stage-visual">
+            <div class="washi-tape"></div>
+            <div class="hero-slideshow" id="hero-slideshow">
+              <div class="hero-slide active"><img src="assets/outdoor-03.jpg" alt="Seelenhund im warmen Abendlicht"></div>
+              <div class="hero-slide"><img src="assets/outdoor-02.jpg" alt="Glücklicher Hund im goldenen Wald"></div>
+              <div class="hero-slide"><img src="assets/outdoor-05.jpg" alt="Verträumter Blick im sanften Sonnenuntergang"></div>
+              <div class="hero-slide"><img src="assets/studio-01.jpg" alt="Zeitloses Fine-Art Hundeportrait auf Leinwand"></div>
+              <div class="hero-slide"><img src="assets/outdoor-04.jpg" alt="Lebensfreude und Dynamik in der Natur"></div>
+              <div class="slideshow-indicators">
+                <button class="slide-dot active" aria-label="Foto 1"></button>
+                <button class="slide-dot" aria-label="Foto 2"></button>
+                <button class="slide-dot" aria-label="Foto 3"></button>
+                <button class="slide-dot" aria-label="Foto 4"></button>
+                <button class="slide-dot" aria-label="Foto 5"></button>
+              </div>
+            </div>
+
+            <!-- Floating Polaroid Side Card -->
+            <div class="hero-polaroid-side">
+              <div class="hero-polaroid-img">
+                <img src="assets/yara-about.jpg" alt="Fotografin Yara">
+              </div>
+              <div class="hero-polaroid-caption">
+                Yara & die Hunde
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTERACTIVE WESEN-MATCHER (HUNDE-CHARAKTER-FINDER) -->
+    <section class="wesen-matcher-section" id="matcher">
+      <div class="container">
+        <div class="wesen-matcher-box">
+          <div class="wesen-matcher-header">
+            <h2>Welches Erlebnis passt zum <em>Charakter deines Hundes?</em></h2>
+          </div>
+
+          <!-- The Interactive Trait Selector -->
+          <div class="wesen-matcher-chips">
+            <button class="wesen-chip" data-type="action">🐾 Der wilde Wirbelwind</button>
+            <button class="wesen-chip active" data-type="dreamer">🌿 Der leise Seelenhund</button>
+            <button class="wesen-chip" data-type="diva">👑 Der stolze Charakterkopf</button>
+            <button class="wesen-chip" data-type="autumn">🍂 Der Herbst-Genießer</button>
+          </div>
+
+          <!-- Dynamic Result Display -->
+          <div class="wesen-result-card" id="wesen-result">
+            <div class="wesen-result-img">
+              <img src="assets/outdoor-05.jpg" alt="Passendes Shooting" id="wesen-img">
+            </div>
+            <div class="wesen-result-content">
+              <div class="wesen-result-meta">
+                <span class="wesen-badge-rec" id="wesen-badge">Empfehlung: Abendlicht-Shooting · Paket Kleine Auszeit</span>
+              </div>
+              <h3 id="wesen-title">Der leise Seelenhund: Sanfte Natur & Geborgenheit</h3>
+              <p class="wesen-result-desc" id="wesen-desc">
+                Dein Liebling ist eher ruhig, beobachtet die Welt mit klugen Augen und kuschelt am liebsten? Wir nehmen uns unendlich viel Zeit in einer friedlichen Waldlichtung. Ohne Trubel, in harmonischem Abendlicht entstehen Bilder voller Zartheit.
+              </p>
+              <a href="#kontakt" class="pill-btn" id="wesen-btn">Passendes Shooting anfragen →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. VELVET DARKROOM HALLOWEEN SPECIAL -->
+    <section class="velvet-special" id="special">
+      <div class="container">
+        <div class="velvet-special-card">
+          <div class="velvet-slot-tracker">
+            <span class="velvet-dot"></span> Saisonal limitiert: Nur noch 8 Wochenend-Slots verfügbar
+          </div>
+          <h2>Vier Wochen Herbstgold und <em>geheimnisvolle Studio-Magie.</em></h2>
+          <p class="velvet-special-text">
+            Für exakt vier Wochen im goldenen Herbst öffnen wir unsere limitierte Fine-Art Dunkelkammer: Ausdrucksstarke Porträts vor samtig schwarzem Studio-Hintergrund, bei denen jedes Schnurrhaar, jede Fellzeichnung und die tiefe Seele deines Hundes im Rampenlicht stehen.
+          </p>
+          <div class="velvet-special-grid">
+            <div class="velvet-special-item">
+              <img src="assets/halloween-01.jpg" alt="Halloween Hundefoto im Studio vor schwarzem Hintergrund">
+            </div>
+            <div class="velvet-special-item">
+              <img src="assets/halloween-02.jpg" alt="Ausdrucksstarkes Hundeportrait auf dunkler Leinwand">
+            </div>
+            <div class="velvet-special-item">
+              <img src="assets/halloween-03.jpg" alt="Mystisches Halloween Hundebild Studio">
+            </div>
+          </div>
+          <div>
+            <a href="#kontakt" class="pill-btn" style="background: #E29CA7; color: #25201E; border-color: #E29CA7;">
+              Herbst-Termin sichern
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. DUAL-STAGE: DIE ZWEI WELTEN (OUTDOOR VS. LEINWAND) -->
+    <section class="dual-stage-section" id="galerien">
+      <div class="container">
+        <div class="dual-stage-header">
+          <h2>Zwei Bildwelten für das <em>Wesen deines Hundes.</em></h2>
+        </div>
+        <div class="dual-stage-container">
+          <!-- Outdoor Card -->
+          <article class="dual-stage-card">
+            <div class="dual-stage-img-wrap">
+              <img src="assets/neu/SnapInsta.to_789136486_18106430633047303_7069413809171730526_n.jpg" alt="Lebendiges Outdoor Hundeportrait im Wald" class="dual-outdoor-fit">
+            </div>
+            <div class="dual-stage-body">
+              <h3>Natur & Weite</h3>
+              <p>
+                Der Duft von feuchtem Moos, der Wind im Fell und das goldene Spätnachmittagslicht. Draußen in den Wiesen und Wäldern fangen wir die ungebremste Lebensfreude und die reine Dynamik deines Hundes ein.
+              </p>
+              <div>
+                <a href="gallery.html" class="pill-outline">Outdoor-Galerie ansehen →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Leinwand Card -->
+          <article class="dual-stage-card">
+            <div class="dual-stage-img-wrap">
+              <img src="assets/studio-01.jpg" alt="Edles Hundeportrait auf samtiger Studioleinwand" class="dual-studio-fit">
+            </div>
+            <div class="dual-stage-body">
+              <h3>Stille & Tiefe auf Leinwand</h3>
+              <p>
+                Ganz nah, warm und auf das Wesentliche reduziert. Vor handgemalten Studioleinwänden rückt jedes Detail, jede feine Mimik und die unverwechselbare Persönlichkeit deines Lieblings in den Mittelpunkt.
+              </p>
+              <div>
+                <a href="gallery.html" class="pill-outline">Leinwand-Galerie ansehen →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. POLAROID WALL TESTIMONIALS -->
+    <section class="polaroid-testi-section" id="stimmen">
+      <div class="container">
+        <div class="dual-stage-header">
+          <h2>Echte Liebesbriefe von <em>Hundemenschen.</em></h2>
+        </div>
+        <div class="polaroid-wall-grid">
+          <div class="polaroid-card">
+            <div class="polaroid-pin"></div>
+            <div class="polaroid-stars">★★★★★</div>
+            <p class="polaroid-quote">
+              „Yara hat eine so unbeschreiblich ruhige Art. Unser sensibler Milo durfte erst einmal schnüffeln und die Welt vergessen. Die Bilder haben uns zu Tränen gerührt.“
+            </p>
+            <div class="polaroid-author">Sophie mit Milo</div>
+          </div>
+
+          <div class="polaroid-card">
+            <div class="polaroid-pin"></div>
+            <div class="polaroid-stars">★★★★★</div>
+            <p class="polaroid-quote">
+              „Kein Zwang, kein starres Stillsitzen. Sam durfte einfach rennen und glücklich sein. Genau dieses Leuchten in seinen Augen hat Yara für immer festgehalten.“
+            </p>
+            <div class="polaroid-author">Jonas & Paula mit Sam</div>
+          </div>
+
+          <div class="polaroid-card">
+            <div class="polaroid-pin"></div>
+            <div class="polaroid-stars">★★★★★</div>
+            <p class="polaroid-quote">
+              „Die Halloween-Porträts vor dem dunklen Hintergrund sind pure Kunstwerke. Jeder, der uns besucht, bleibt ehrfürchtig davor stehen. Meisterklasse!“
+            </p>
+            <div class="polaroid-author">Katharina mit Balu</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PREISPAKETE (3 NEBENEINANDER, KEINE KICKER) -->
+    <section class="nat-pricing" id="preise">
+      <div class="container">
+        <div class="dual-stage-header">
+          <h2>Drei ehrliche Optionen für <em>wertvolle Erinnerungen.</em></h2>
+        </div>
+        <div class="nat-pricing-grid">
+          <!-- Paket 1 -->
+          <article class="nat-price-card">
+            <h3>Kleine Auszeit</h3>
+            <div class="nat-price-val">190 € <span>/ Basis</span></div>
+            <ul class="nat-price-list">
+              <li>30 bis 45 Minuten Shootingzeit</li>
+              <li>5 meisterhaft retuschierte Bilddateien</li>
+              <li>Passwortgeschützte Auswahlgalerie</li>
+              <li>Entspannter Vorbereitungsleitfaden</li>
+              <li>Volle private Nutzungsrechte</li>
+            </ul>
+            <a href="#kontakt" class="pill-outline">Option anfragen</a>
+          </article>
+
+          <!-- Paket 2 (Featured) -->
+          <article class="nat-price-card featured">
+            <h3>Herzensrunde</h3>
+            <div class="nat-price-val">290 € <span>/ Meistgewählt</span></div>
+            <ul class="nat-price-list">
+              <li>60 bis 75 Minuten Shooting ohne Eile</li>
+              <li>12 meisterhaft retuschierte Bilddateien</li>
+              <li>Passwortgeschützte Auswahlgalerie</li>
+              <li>Porträt- und Bewegungsaufnahmen</li>
+              <li>Echte Mensch-Hund Momente inklusive</li>
+              <li>Edles Printset auf feinstem Kunstpapier</li>
+            </ul>
+            <a href="#kontakt" class="pill-btn">Favoriten wählen</a>
+          </article>
+
+          <!-- Paket 3 -->
+          <article class="nat-price-card">
+            <h3>Für die Ewigkeit</h3>
+            <div class="nat-price-val">390 € <span>/ Rundum</span></div>
+            <ul class="nat-price-list">
+              <li>90 Minuten Shooting mit voller Hingabe</li>
+              <li>25 meisterhaft retuschierte Bilddateien</li>
+              <li>Passwortgeschützte Auswahlgalerie</li>
+              <li>Zwei verschiedene Sets oder Locations</li>
+              <li>Umfassende Paar- und Familienbilder</li>
+              <li>Signierte Geschenkbox mit Abzügen</li>
+            </ul>
+            <a href="#kontakt" class="pill-outline">Option anfragen</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ABOUT ME SECTION -->
+    <section class="nat-about">
+      <div class="container">
+        <div class="nat-about-box">
+          <div class="nat-about-img">
+            <img src="assets/yara-about.jpg" alt="Fotografin Yara">
+          </div>
+          <div class="nat-about-text">
+            <h2>Hallo, ich bin Yara – <em>Hundemensch</em> mit Herz und Kamera.</h2>
+            <p>
+              Ich bin 25 Jahre alt und lebe zwischen Schwarzwald und Rheinebene. Für mich sind Hunde die ehrlichsten, treuesten und feinfühligsten Wegbegleiter unseres Lebens.
+            </p>
+            <p>
+              Meine Philosophie: <strong>Persönlichkeit statt Perfektion.</strong> Bei mir muss kein Hund ein Kunststück vorführen. Die schiefen Ohren, das neugierige Schnüffeln, die nasse Nase im Wind – das sind die Momente, die euer Herz berühren und für immer bleiben.
+            </p>
+            <div style="margin-top: 30px;">
+              <a href="about.html" class="pill-btn">Meine Philosophie kennenlernen →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. POSTKARTEN-KONTAKTFORMULAR -->
+    <section class="postcard-contact-section" id="kontakt">
+      <div class="container">
+        <div class="postcard-wrap">
+          <div class="postcard-info">
+            <h2>Schreib eine Postkarte an <em>Yara.</em></h2>
+            <p>
+              Erzähl mir von deinem Liebling! Klicke einfach auf die passenden Eigenschaften deines Hundes oder schreib mir direkt per E-Mail.
+            </p>
+
+            <div class="postcard-tags">
+              <span class="ptag">Verspielt & Wild</span>
+              <span class="ptag">Eher scheu & ruhig</span>
+              <span class="ptag">Voller Energie</span>
+              <span class="ptag">Großer Kuschler</span>
+              <span class="ptag">Liebt Leckerlis</span>
+            </div>
+
+            <div>
+              <a href="mailto:info@lichtblickfotografie.studio" class="postcard-mail-link">
+                info@lichtblickfotografie.studio ↗
+              </a>
+              <p style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">
+                Standort: Freiburg im Breisgau · Lörrach · Südbaden
+              </p>
+            </div>
+          </div>
+
+          <form class="postcard-form" id="postcard-form">
+            <div class="postcard-field">
+              <label for="post-name">Dein Name</label>
+              <input type="text" id="post-name" class="postcard-input" placeholder="Vorname Nachname" required>
+            </div>
+            <div class="postcard-field">
+              <label for="post-email">Deine E-Mail</label>
+              <input type="email" id="post-email" class="postcard-input" placeholder="deine@mail.de" required>
+            </div>
+            <div class="postcard-field">
+              <label for="post-dog">Name und Rasse deines Hundes</label>
+              <input type="text" id="post-dog" class="postcard-input" placeholder="z. B. Balu, Golden Retriever, 3 Jahre">
+            </div>
+            <div class="postcard-field">
+              <label for="post-type">Wunsch-Shooting</label>
+              <select id="post-type" class="postcard-select">
+                <option value="herbst">Herbst- & Halloween-Special</option>
+                <option value="outdoor">Outdoor-Shooting in der Natur</option>
+                <option value="leinwand">Leinwand-Shooting im Studio</option>
+                <option value="beratung">Ich möchte gemeinsam abstimmen</option>
+              </select>
+            </div>
+            <div class="postcard-field">
+              <label for="post-msg">Deine persönliche Nachricht</label>
+              <textarea id="post-msg" class="postcard-textarea" placeholder="Was bringt dich an deinem Hund jeden Tag zum Lächeln?"></textarea>
+            </div>
+            <button type="submit" class="pill-btn" style="width: 100%; border-radius: var(--radius-sm); padding: 16px;">
+              Postkarte absenden
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="nat-footer">
+    <div class="container nat-footer-inner">
+      <a href="index.html" class="nat-brand" style="font-size: 1.4rem;">Lichtblick <em>Fotografie</em></a>
+      <p style="font-size: 14px; color: var(--text-muted);">© <span id="year"></span> Lichtblick Fotografie · Yara</p>
+      <div class="nat-footer-links">
+        <a href="links.html">Links</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ansicht | Lichtblick Fotografie Vorschau</title>
+<link rel="stylesheet" href="hub.css">
+</head>
+<body class="view">
+<header class="bar">
+  <a class="home" href="./">← Übersicht</a>
+  <div class="pick">
+    <button type="button" id="prev" aria-label="Vorheriger Entwurf">‹</button>
+    <select id="ver" aria-label="Entwurf wählen"></select>
+    <button type="button" id="next" aria-label="Nächster Entwurf">›</button>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Seiten dieses Entwurfs"></nav>
+  <div class="dev" role="group" aria-label="Gerätegröße">
+    <button type="button" data-d="desktop" aria-pressed="true">Desktop</button>
+    <button type="button" data-d="tablet" aria-pressed="false">Tablet</button>
+    <button type="button" data-d="phone" aria-pressed="false">Handy</button>
+  </div>
+  <a class="ext" id="ext" href="#" target="_blank" rel="noopener">Neuer Tab ↗</a>
+</header>
+<div class="stage" id="stage"><iframe id="frame" title="Vorschau des Entwurfs"></iframe></div>
+<noscript><p style="padding:20px">Diese Ansicht braucht JavaScript. Die Entwürfe findest du auch direkt in den Ordnern v1 bis v8.</p></noscript>
+<script src="versions.js"></script>
+<script>
+(function () {
+  var V = LB.VERSIONEN, S = LB.SEITEN;
+  var $ = function (i) { return document.getElementById(i); };
+  var ver = $('ver'), tabs = $('tabs'), frame = $('frame'), stage = $('stage'), ext = $('ext');
+  var q = new URLSearchParams(location.search);
+  var cur = V.filter(function (v) { return v.id === q.get('v'); })[0] || V[0];
+  var seite = q.get('seite') || 'start';
+
+  V.forEach(function (v) {
+    var o = document.createElement('option');
+    o.value = v.id; o.textContent = v.nr + '. ' + v.name; ver.appendChild(o);
+  });
+
+  function verfuegbar(v) { return S.filter(function (s) { return v.seiten[s[0]]; }); }
+  function label(v, id) {
+    if (v.labels && v.labels[id]) return v.labels[id];
+    return S.filter(function (s) { return s[0] === id; })[0][1];
+  }
+  function fallback(v, id) {
+    if (v.seiten[id]) return id;
+    if (id === 'leinwand' && v.seiten.outdoor) return 'outdoor';
+    if (id === 'outdoor' && v.seiten.leinwand) return 'leinwand';
+    return 'start';
+  }
+  function pfad(v, id) { return v.id + '/' + v.seiten[id]; }
+
+  function zeichneTabs() {
+    tabs.innerHTML = '';
+    verfuegbar(cur).forEach(function (s) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.textContent = label(cur, s[0]); b.dataset.s = s[0];
+      b.addEventListener('click', function () { seite = s[0]; laden(); });
+      tabs.appendChild(b);
+    });
+  }
+  function markiere() {
+    Array.prototype.forEach.call(tabs.children, function (b) {
+      b.setAttribute('aria-current', b.dataset.s === seite ? 'true' : 'false');
+      if (b.dataset.s === seite && b.scrollIntoView) b.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
+  }
+  function url() {
+    history.replaceState(null, '', '?v=' + cur.id + '&seite=' + seite);
+    document.title = cur.name + ' | Lichtblick Fotografie Vorschau';
+    ext.href = pfad(cur, seite);
+  }
+  function laden() {
+    seite = fallback(cur, seite);
+    ver.value = cur.id;
+    markiere(); url();
+    var ziel = pfad(cur, seite);
+    var jetzt = '';
+    try { jetzt = frame.contentWindow.location.pathname + frame.contentWindow.location.search; } catch (e) {}
+    if (jetzt.slice(-ziel.length) !== ziel) frame.src = ziel;
+  }
+  function wechsleVersion(v) { cur = v; zeichneTabs(); laden(); }
+
+  ver.addEventListener('change', function () { wechsleVersion(V.filter(function (v) { return v.id === ver.value; })[0]); });
+  $('prev').addEventListener('click', function () { wechsleVersion(V[(V.indexOf(cur) - 1 + V.length) % V.length]); });
+  $('next').addEventListener('click', function () { wechsleVersion(V[(V.indexOf(cur) + 1) % V.length]); });
+
+  // Wenn im Entwurf geklickt wird, Reiter mitführen
+  frame.addEventListener('load', function () {
+    var p;
+    try { p = frame.contentWindow.location.pathname + frame.contentWindow.location.search; } catch (e) { return; }
+    var treffer = verfuegbar(cur).filter(function (s) {
+      var z = pfad(cur, s[0]);
+      return p.slice(-z.length) === z || (z.slice(-10) === 'index.html' && z.indexOf('?') === -1 && /\/$/.test(p) && p.indexOf('/' + cur.id + '/') !== -1);
+    })[0];
+    if (treffer && treffer[0] !== seite) { seite = treffer[0]; markiere(); url(); }
+  });
+
+  // Gerätegröße
+  Array.prototype.forEach.call(document.querySelectorAll('.dev button'), function (b) {
+    b.addEventListener('click', function () {
+      stage.className = 'stage' + (b.dataset.d === 'desktop' ? '' : ' ' + b.dataset.d);
+      Array.prototype.forEach.call(document.querySelectorAll('.dev button'), function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+    });
+  });
+
+  zeichneTabs(); laden();
+})();
+</script>
+</body>
+</html>

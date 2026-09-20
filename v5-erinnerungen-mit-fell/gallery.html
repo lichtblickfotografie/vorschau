@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie · Lichtblick Fotografie</title>
+  <meta name="description" content="Entdecke ausgewählte Outdoor- und Leinwand-Porträts für Hunde in Freiburg & Lörrach.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-subtle);
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="arch-header">
+    <div class="container arch-header-inner">
+      <a href="index.html" class="arch-brand">Lichtblick <em>Fotografie</em></a>
+      <button class="mobile-toggle" aria-label="Menü öffnen">☰</button>
+      <nav class="arch-nav-links">
+        <a href="index.html#special">Herbst-Special</a>
+        <a href="gallery.html" style="color: var(--accent);">Galerien</a>
+        <a href="index.html#preise">Pakete</a>
+        <a href="about.html">Über mich</a>
+        <a href="index.html#kontakt" class="pill-button" style="padding: 10px 24px; font-size: 14px;">Termin anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="subpage-hero">
+      <div class="container">
+        <h1>Ausgewählte <em>Augenblicke.</em></h1>
+        <p>
+          Ob wild im Wald oder pur auf samtiger Leinwand: Hier findest du einen Einblick in vergangene Shootings.
+        </p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Alle Bilder</button>
+        <button class="filter-btn" data-filter="outdoor">Outdoor</button>
+        <button class="filter-btn" data-filter="studio">Leinwand</button>
+        <button class="filter-btn" data-filter="special">Herbst-Special</button>
+      </div>
+
+      <div class="gallery-masonry">
+        <div class="gallery-masonry-item" data-category="outdoor">
+          <img src="assets/neu/SnapInsta.to_789136486_18106430633047303_7069413809171730526_n.jpg" alt="Outdoor Hundeportrait" style="object-position: center 10%;">
+        </div>
+        <div class="gallery-masonry-item" data-category="studio">
+          <img src="assets/studio-01.jpg" alt="Leinwand Studio Hundeportrait">
+        </div>
+        <div class="gallery-masonry-item" data-category="special">
+          <img src="assets/halloween-01.jpg" alt="Halloween Hundebild auf schwarzem Grund">
+        </div>
+        <div class="gallery-masonry-item" data-category="outdoor">
+          <img src="assets/outdoor-02.jpg" alt="Hund im warmen Abendlicht">
+        </div>
+        <div class="gallery-masonry-item" data-category="studio">
+          <img src="assets/studio-02.jpg" alt="Hundeportrait Studio">
+        </div>
+        <div class="gallery-masonry-item" data-category="special">
+          <img src="assets/halloween-02.jpg" alt="Halloween Hundebild">
+        </div>
+        <div class="gallery-masonry-item" data-category="outdoor">
+          <img src="assets/outdoor-04.jpg" alt="Hund in der Wiese">
+        </div>
+        <div class="gallery-masonry-item" data-category="special">
+          <img src="assets/halloween-03.jpg" alt="Halloween Studio Hundebild">
+        </div>
+        <div class="gallery-masonry-item" data-category="studio">
+          <img src="assets/studio-03.jpg" alt="Studio Hundeportrait Detail">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="arch-footer">
+    <div class="container arch-footer-inner">
+      <a href="index.html" class="arch-brand" style="font-size: 1.4rem;">Lichtblick <em>Fotografie</em></a>
+      <p style="font-size: 14px; color: var(--text-muted);">© <span id="year"></span> Lichtblick Fotografie · Yara</p>
+      <div class="arch-footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Vorschau | Lichtblick Fotografie</title>
+<meta name="description" content="Design-Vorschau für die neue Website von Lichtblick Fotografie.">
+<link rel="stylesheet" href="hub.css">
+</head>
+<body>
+<main class="hub">
+  <h1>Deine neue Website, <em>in acht Varianten</em></h1>
+  <p class="lead">Klick einen Entwurf an und schau dir alle Seiten an. In der Ansicht kannst du oben zwischen den Entwürfen und den Seiten wechseln und die Handy-Ansicht ausprobieren.</p>
+  <div class="grid" id="grid"></div>
+  <p class="foot">Dies ist eine nicht-öffentliche Vorschau. Texte, Preise und Bewertungen sind Platzhalter.</p>
+</main>
+<script src="versions.js"></script>
+<script>
+(function () {
+  var g = document.getElementById('grid');
+  LB.VERSIONEN.forEach(function (v) {
+    var a = document.createElement('a');
+    a.className = 'card';
+    a.href = 'ansicht.html?v=' + v.id;
+    a.innerHTML = '<div class="thumb"><img src="bilder/' + v.id + '.jpg" alt="" width="640" height="400" loading="lazy"></div>' +
+      '<div class="card-b"><span class="card-nr">Entwurf ' + v.nr + '</span><h2></h2><p></p>' +
+      '<div class="dots" aria-hidden="true">' + v.farben.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('') + '</div></div>';
+    a.querySelector('h2').textContent = v.name;
+    a.querySelector('p').textContent = v.text;
+    g.appendChild(a);
+  });
+})();
+</script>
+</body>
+</html>
